@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title> Social Media Text analysis</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 40%;
+}
+body {
+  background-image: url("{{ url_for('static', filename='text.jpg') }}");
+  background-color:#B3C99E
+  background-size:cover;
+  background-position: center;
+  
+</style>
+</head>
+
+<body align="center">
+ <div class="login">
+	<h1 style="font-family: Lucida Console, Courier, monospace;font-size: 32px;text-shadow:5px 5px 5px black"> StressSense - Monitoring Stress from Social Media Posts </h1>
+
+     <!-- Main Input For Receiving Query to our DL -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+
+    	<textarea id="text" placeholder="Enter your Social media text" name="Sentence" rows="7" cols="50"></textarea>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Analyse</button>
+    
+    </form>
+
+   <br>
+   <br>
+   <span style="color:RED;font-size:50px;font-weight:bold">{{ prediction_text }}</span>
+
+ </div>
+
+
+</body>
+</html>
